@@ -47,7 +47,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,15 +66,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST':os.environ.get("DB_HOST"),
-        'NAME':os.environ.get("DB_NAME"),
-        'USER':os.environ.get("DB_USER"),
-        'PASSWORD':os.environ.get("DB_PASS"),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'HOST':os.environ.get("DB_HOST"),
+#         'NAME':os.environ.get("DB_NAME"),
+#         'USER':os.environ.get("DB_USER"),
+#         'PASSWORD':os.environ.get("DB_PASS"),
+#     }
+# }
 
 
 
@@ -114,8 +114,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"),)
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
