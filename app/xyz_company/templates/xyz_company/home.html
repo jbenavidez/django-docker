@@ -37,7 +37,7 @@
                   <div class="portfolio-hover">
                      <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                   </div>
-                  <img class="img-fluid" src="../static{{item.img_url}}" alt="..." />
+                  <img class="img-fluid" src="/static/static/{{item.img_url}}" alt="..." />
                </a>
                <div class="portfolio-caption">
                   <div class="portfolio-caption-heading">{{item.name}}</div>
@@ -59,7 +59,7 @@
       <ul class="timeline">
          {% for item in company_history%}
          <li {%if item.id|divisibleby:'2' %}  class="timeline-inverted" {% endif %}>
-         <div class="timeline-image"><img class="rounded-circle img-fluid" src="../static{{item.img_url}}" alt="..." /></div>
+         <div class="timeline-image"><img class="rounded-circle img-fluid" src="/static/static/{{item.img_url}}" alt="..." /></div>
          <div class="timeline-panel">
             <div class="timeline-heading">
                <h4>{{  item.date }}</h4>
@@ -85,7 +85,7 @@
          {% for item in team_list%}
          <div class="col-lg-4">
             <div class="team-member">
-               <img class="mx-auto rounded-circle" src="../static{{item.img_url}}  " alt="..." />
+               <img class="mx-auto rounded-circle" src="/static/static/{{item.img_url}}  " alt="..." />
                <h4>{{item.name}}  </h4>
                <p class="text-muted">  {{item.title}}  </p>
                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
