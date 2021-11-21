@@ -66,7 +66,7 @@ $ ssh ec2-user@<your-ec2-instance-add>.amazonaws.com
 <ul>
 <li>run  "<b>git clone git@github.com:jbenavidez/django-docker-aws.git </b>"to clon the project   </li>
 <li>run  "<b>cp .env.sample .env </b>" to create your env(this file store your environment varibles) </li>
-<li>run  "<b>docker-compose -f docker-compose-prod.yml up -d</b>"  to run the app in your ee2 instane | the '-d' means to run in the background</li>
+<li>run  "<b>docker-compose -f docker-compose-prod.yml up -d</b>"  to run the app in your ec2 instance | the '-d' means to run in the background</li>
  
 </ul>
 ### Result | open your ec2 add in your browser to see your app 
