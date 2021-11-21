@@ -1,5 +1,6 @@
-# Django-docker-ECE
-This project is used to show how to deploy an dockerize django app on an EC2 instance 
+# Django-docker-EC2
+This project is used to show how we can connect our django app to a progres db on a docker enviroment, in addition, it show how we can run our dockerize app in a ec2 instance 
+
 
 
 ## Stack
