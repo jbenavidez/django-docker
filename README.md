@@ -74,7 +74,7 @@ $ ssh ec2-user@<your-ec2-instance-add>.amazonaws.com
 ![Alt text](/images/p2.png "test locally" )
 #### Make sure that you enabled "http port 80" request in your ec2 instance otherwise you will not be able to acces to your ec2 via browser
 
-## 7) Push new udpate you your EC2 instance
+## 7) Push new udpate to your EC2 instance
 <ul>
 <li> push your local updates to your repo, we never code in our ec2 instance </li>
 <li>run  "<b>git pull origin</b>"to  pull the lastest update   </li>
