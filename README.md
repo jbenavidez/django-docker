@@ -66,10 +66,25 @@ $ ssh ec2-user@<your-ec2-instance-add>.amazonaws.com
 <ul>
 <li>run  "<b>git clone git@github.com:jbenavidez/django-docker-aws.git </b>"to clon the project   </li>
 <li>run  "<b>cp .env.sample .env </b>" to create your env(this file store your environment varibles) </li>
-<li>run  "<b>docker-compose -f docker-compose-deploy.yml up -d</b>"  to run the app in your ee2 instane | the '-d' means to run in the background</li>
+<li>run  "<b>docker-compose -f docker-compose-prod.yml up -d</b>"  to run the app in your ee2 instane | the '-d' means to run in the background</li>
  
 </ul>
 ### Result | open your ec2 add in your browser to see your app 
 
 ![Alt text](/images/p2.png "test locally" )
-### Make sure that your enable "http port 80" request in your ec2 instance otherwise you will not be able to acces to your ec2 via browser
+#### Make sure that you enabled "http port 80" request in your ec2 instance otherwise you will not be able to acces to your ec2 via browser
+
+## 7) Push new udpate you your EC2 instance
+<ul>
+<li> push your local updates to your repo, we never code in our ec2 instance </li>
+<li>run  "<b>git pull origin</b>"to  pull the lastest update   </li>
+<li>run  "<b>docker-compose -f docker-compose-prod.yml build app </b>" to  rebuild the app  </li>
+<li>run  "<b>docker-compose -f docker-compose-prod.yml up --no-deps -d app</b>"  to start the the containers </li>
+</ul>
+
+## 8) extra 
+
+<ul>
+<li>run  "<b>docker-compose -f docker-compose-prod.yml run --rm app sh -c "python manage.py  "     </b>"to  run python command in your docker enviroment   </li>
+ 
+</ul>
