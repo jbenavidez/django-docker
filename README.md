@@ -16,7 +16,7 @@ This project is used to show how we can connect our django app to a progres db o
 
  
 ## 1) Test everything before deploying to Ec2
-#### Before deploy to ec2, on your local machine, test  docker-compose-prod.yml to make sure everything work correctly 
+#### Before deploy to ec2,  test docker-compose-prod.yml locally  to make sure everything work correctly 
 ```bash
 $ docker-compose -f docker-compose-prod.yml build
 $ docker-compose -f docker-compose-prod.yml  Up
