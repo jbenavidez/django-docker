@@ -1,5 +1,5 @@
 # Django-docker-ECE
-This project is used to show how to deploy an dockerize django app on an EC2 machine 
+This project is used to show how to deploy an dockerize django app on an EC2 instance 
 
 
 ## Stack
@@ -22,7 +22,7 @@ $ docker-compose -f docker-compose-prod.yml  Up
 ```
 ![Alt text](/images/p1.png "test locally" )
 
-## 2) generate Publick key from mac | you will need to add this public key to our ec2 machine on the creationion process
+## 2) generate Publick key from mac | you will need to add this public key to our ec2 instance on the creationion process
 ```bash
 $ ssh-keygen -t rsa
 $ pbcopy < ~/.ssh/id_rsa.pub
@@ -30,15 +30,15 @@ $ pbcopy < ~/.ssh/id_rsa.pub
 
 ## 3) Connect to EC2 using ssh
 ```bash
-$ ssh ec2-user@<your-ec2-machine-add>.amazonaws.com
+$ ssh ec2-user@<your-ec2-instance-add>.amazonaws.com
  
 ``` 
 
-## 4) Install Depedencies in your EC2 machine 
+## 4) Install Depedencies in your EC2 instance 
 <ol>
 <li>run  "<b>sudo yum install git -y </b>" to install git in the VM, so we can clone the source code from github  </li>
 <li>run " <b>sudo amazon-linux-extras install  docker -y </b>" to  install docker on the vm </li>
-<li>run " <b>sudo systemctl enable docker.service </b>"  to enable docker services to start when we reboot the machine </li>
+<li>run " <b>sudo systemctl enable docker.service </b>"  to enable docker services to start when we reboot the instance </li>
 <li>run " <b>sudo systemctl start  docker.service</b>"to start docker </li>
 <li>run " <b>sudo usermod -aG docker ec2-user</b>" to add 'ec2-user' to the docker-group, so the 'ec2-user can run the our project      </li>
 <li>install docker-compose in ec2  
@@ -48,4 +48,27 @@ $ ssh ec2-user@<your-ec2-machine-add>.amazonaws.com
  
 </ul>
 </li>
+<li>run " <b>exit</b>"to applied the  update (you need to logout and login again in order to make it  ) </li>
+<li>run " <b>ssh ec2-user@<your-ec2-machine-add>.amazonaws.com</b>"to login to your ec2 instance docker </li>
 </ol>
+
+## 5) Connect your ec2 instance to your repo
+### Generate key for your ec2 instance | you will need a public key to conenct to your private repo
+<ol>
+<li>run  "<b>ssh-keygen -t ed25519 -b 4096</b>", this will generate a key, so we can add this key to our repo since our repo is private    </li>
+<li>run " <b> cat ~/.ssh/id_ed25519.pub"</b>" to get the public key;   </li>
+<li>On your repo under the settings ->deploy key, register paste the public key; after we add the deploy key, our ec2 instance should be able to connect to our github project </li>
+</ol>
+
+## 6) Add the project to our ec2 instance 
+### On github  porject . click code  -> clone -->ssh and copy the link | is your repo is private your must 'ssh' otherwise it wont work 
+<ul>
+<li>run  "<b>git clone git@github.com:jbenavidez/django-docker-aws.git </b>"to clon the project   </li>
+<li>run  "<b>cp .env.sample .env </b>" to create your env(this file store your environment varibles) </li>
+<li>run  "<b>docker-compose -f docker-compose-deploy.yml up -d</b>"  to run the app in your ee2 instane | the '-d' means to run in the background</li>
+ 
+</ul>
+### Result | open your ec2 add in your browser to see your app 
+
+![Alt text](/images/p2.png "test locally" )
+### Make sure that your enable "http port 80" request in your ec2 instance otherwise you will not be able to acces to your ec2 via browser
