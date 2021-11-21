@@ -37,7 +37,15 @@ $ ssh ec2-user@<your-ec2-machine-add>.amazonaws.com
 ## 4) Install Depedencies in your EC2 machine 
 <ol>
 <li>run  "<b>sudo yum install git -y </b>" to install git in the VM, so we can clone the source code from github  </li>
-<li>run " sudo amazon-linux-extras install  docker -y " to  install docker on the vm </li>
-
+<li>run " <b>sudo amazon-linux-extras install  docker -y </b>" to  install docker on the vm </li>
+<li>run " <b>sudo systemctl enable docker.service </b>"  to enable docker services to start when we reboot the machine </li>
+<li>run " <b>sudo systemctl start  docker.service</b>"to start docker </li>
+<li>run " <b>sudo usermod -aG docker ec2-user</b>" to add 'ec2-user' to the docker-group, so the 'ec2-user can run the our project      </li>
+<li>install docker-compose in ec2  
+<ul>
+<li> run <b>" sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose"</b> to install docker-compose in ec2</li>
+<li> Get the above command from  <b>"https://docs.docker.com/compose/install/" </b> |linux tab </li>
  
+</ul>
+</li>
 </ol>
