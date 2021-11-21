@@ -23,7 +23,7 @@ $ docker-compose -f docker-compose-prod.yml  Up
 ```
 ![Alt text](/images/p1.png "test locally" )
 
-## 2) generate Publick key from mac | you will need to add this public key to our ec2 instance on the creationion process
+## 2) Generate public key from mac | Register your key in aws, so you can add it   to your  ec2 instance on the creation process
 ```bash
 $ ssh-keygen -t rsa
 $ pbcopy < ~/.ssh/id_rsa.pub
@@ -82,7 +82,7 @@ $ ssh ec2-user@<your-ec2-instance-add>.amazonaws.com
 <li>run  "<b>docker-compose -f docker-compose-prod.yml up --no-deps -d app</b>"  to start the the containers </li>
 </ul>
 
-## 8) extra 
+## 8) Extra 
 
 <ul>
 <li>run  "<b>docker-compose -f docker-compose-prod.yml run --rm app sh -c "python manage.py  "     </b>"to  run python command in your docker enviroment   </li>
