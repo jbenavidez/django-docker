@@ -85,6 +85,6 @@ $ ssh ec2-user@<your-ec2-instance-add>.amazonaws.com
 ## 8) Extra 
 
 <ul>
-<li>run  "<b>docker-compose -f docker-compose-prod.yml run --rm app sh -c "python manage.py  "     </b>"to  run python command in your docker enviroment   </li>
+<li>run  "<b>docker-compose -f docker-compose-prod.yml run --rm app sh -c "python manage.py  "     </b>"to  run python command in your docker enviroment .  </li>
  
 </ul>
