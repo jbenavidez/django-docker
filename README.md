@@ -76,7 +76,7 @@ $ ssh ec2-user@<your-ec2-instance-add>.amazonaws.com
 
 ## 7) Push new udpate to your EC2 instance
 <ul>
-<li> push your local updates to your repo, we never code in our ec2 instance </li>
+<li>Work in your updates locally, then push those update to your repo. We should never code in our ec2 instance </li>
 <li>run  "<b>git pull origin</b>"to  pull the lastest update   </li>
 <li>run  "<b>docker-compose -f docker-compose-prod.yml build app </b>" to  rebuild the app  </li>
 <li>run  "<b>docker-compose -f docker-compose-prod.yml up --no-deps -d app</b>"  to start the the containers </li>
